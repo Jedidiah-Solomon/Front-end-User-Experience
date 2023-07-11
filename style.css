@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900");
+:root {
+  --main-bg-color: #FFC0CB;
+  
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+h1 {
+    font-size: 25px;
+    font-style: italic;
+    color: darkorange;
+    text-align: center;
+}
+
+p {
+  margin-bottom: 10px;
+}
