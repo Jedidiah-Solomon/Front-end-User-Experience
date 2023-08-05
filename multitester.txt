@@ -1,0 +1,54 @@
+Replace 'YOUR_API_KEY' with your actual API key from the Multitexter dashboard.
+
+Adjust the data object to include your desired SMS message content, sender name, and recipients' phone numbers. You can add or remove recipients by separating their numbers with commas.
+
+If you want to send the SMS to a specific contact list, uncomment the Listname property in the data object and replace 'YourContactListName' with the actual name of your contact list.
+
+If you want to schedule the SMS to be sent at a specific time, uncomment the sendtime property in the data object and set the desired scheduled send time in the format 'YYYY-MM-DD HH:mm:ss'.
+
+Remember that the Multitexter API may have additional requirements or specific error handling, so be sure to refer to their official API documentation for comprehensive information.
+
+--------------------
+const apiUrl = 'https://app.multitexter.com/v2/app/sendsms';
+const apiKey = 'bqY0SxVXpjDUM0mpSWupya0IBVPGWC8vWfEGCRED8MDXvbulZz70ExLDXFI3'; // Replace with your actual API key from Multitexter
+
+// Data for sending the SMS
+const data = {
+  Message: 'Hello, this is a test message from Multitexter API!',
+  Sender_name: 'YourName', // Replace 'YourName' with your desired sender name (maximum 11 characters)
+  Recipients: '23480003003034,2348038833883838,23470000033883', // Replace with the recipients' numbers separated by commas
+  // Listname: 'YourContactListName', // Uncomment and replace 'YourContactListName' with the desired contact list name if applicable
+  // sendtime: '2023-07-25 12:00:00', // Uncomment and set the desired scheduled send time if applicable
+};
+
+// The parameters we are gonna pass to the fetch function
+const fetchData = {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`, // Include the API key in the Authorization header
+    'Accept': 'application/json',
+  }),
+};
+
+fetch(apiUrl, fetchData)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(responseData => {
+    // Handle the response data received from the Multitexter API
+    console.log('Response from the server:', responseData);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('Fetch error:', error);
+  });
+-----------------------------------
+
+
+
+

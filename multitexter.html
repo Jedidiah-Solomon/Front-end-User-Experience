@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMS Form</title>
+    <link rel="stylesheet" href="multitexter.css">
+</head>
+<body>
+    <h2>Send SMS</h2>
+    <form id="smsForm">
+        <label for="senderName">Sender Name (max 11 characters):</label>
+        <input type="text" id="senderName" name="senderName" maxlength="11" required><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+        <label for="phoneNo">Phone Number(s) (comma-separated):</label>
+        <input type="text" id="phoneNo" name="phoneNo" required><br>
+
+        <input type="submit" value="Send SMS">
+    </form>
+
+    <div id="response"></div>
+<script src="multitester.js" type="text/javascript"></script>
+</body>
+</html>
